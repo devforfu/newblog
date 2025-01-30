@@ -10,7 +10,7 @@
   import '../../app.css';
 
   let { children, data } = $props();
-  let showPlaceholder = false;
+  let showPlaceholder = true;
 </script>
 
 {#if showPlaceholder}
