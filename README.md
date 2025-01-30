@@ -2,4 +2,4 @@
 
 References:
 
-- https://joyofcode.xyz/sveltekit-markdown-blog#syntax-highlighting
+- https://joyofcode.xyz/sveltekit-markdown-blog

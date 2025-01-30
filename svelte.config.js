@@ -17,13 +17,14 @@ const mdsvexOptions = {
   rehypePlugins: [rehypeSlug],
   highlight: {
     highlighter: async (code, lang = 'text') => {
+      const theme = 'github-light-default';
       const highlighter = await createHighlighter({
-        themes: ['poimandres'],
-        langs: ['javascript', 'typescript'],
+        themes: [theme],
+        langs: ['javascript', 'typescript', 'rust', 'python', 'json', 'bash', 'toml'],
       });
-      await highlighter.loadLanguage('javascript', 'typescript');
+      await highlighter.loadLanguage('javascript', 'typescript', 'rust', 'python', 'json', 'bash', 'toml');
       const html = escapeSvelte(
-        highlighter.codeToHtml(code, { lang, theme: 'poimandres' })
+        highlighter.codeToHtml(code, { lang, theme })
       );
       return `{@html \`${html}\` }`;
     },
