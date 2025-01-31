@@ -279,7 +279,7 @@
     </article>
 </section>
     <div class="not-print">
-        <p>Tip: press <code>Ctrl+P</code> or <code>Cmd+P</code> to display a print-ready page</p>
+        <p>Tip: press Ctrl+P or Cmd+P to display a print-ready page</p>
     </div>
 </div>
 <style>
@@ -307,10 +307,6 @@
         font-size: 18px;
         text-align: center;
         background: lightgrey;
-
-        code {
-            font-size: 18px;
-        }
     }
 
     @media not print {
@@ -340,6 +336,7 @@
         }
         h2 {
             font-size: 14px;
+            margin: 1rem auto;
         }
         .page-break  {
             display:block;

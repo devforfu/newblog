@@ -6,6 +6,7 @@ archived: true
 date: '2019-01-30'
 ---
 <script>
+    import '../../post.css';
     import Gist from '../gist.svelte';
 </script>
 

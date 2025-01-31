@@ -3,14 +3,10 @@
   import Header from './header.svelte'
   import PageTransition from './transition.svelte'
 
-  // import 'open-props/style'
-  // import 'open-props/normalize'
-  // import 'open-props/buttons'
-
   import '../../app.css';
 
   let { children, data } = $props();
-  let showPlaceholder = true;
+  let showPlaceholder = false;
 </script>
 
 {#if showPlaceholder}

@@ -7,6 +7,9 @@ archived: true
 date: '2018-02-27'
 description: Using Python magic to replace class implementation dynamically
 ---
+<script>
+ import '../../post.css';
+</script>
 <!--preamble-->
 
 Every Python object has a set of magic methods that could be overridden to

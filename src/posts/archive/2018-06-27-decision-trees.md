@@ -7,7 +7,7 @@ date: '2018-06-27'
 description: Implementing a simple version of Random Forest algorithm to classify vectors
 ---
 <script>
-    import { math, display } from 'mathlifier';
+    import '../../post.css';
     import Katex from '../katex.svelte';
     import Gist from '../gist.svelte';
 </script>
