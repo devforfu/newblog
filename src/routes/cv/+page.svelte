@@ -284,7 +284,7 @@
 </div>
 <style>
     article, h1, h2, p, section, li {
-        font-family: 'Helvetica Neue', sans-serif;
+        font-family: 'Times New Roman', sans-serif;
     }
 
     a {
