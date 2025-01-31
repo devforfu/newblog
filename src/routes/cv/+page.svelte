@@ -283,6 +283,10 @@
     </div>
 </div>
 <style>
+    article, h1, h2, p, section, li {
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+
     a {
         color: #4444aa;
         text-decoration: none;
