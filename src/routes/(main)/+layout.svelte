@@ -1,12 +1,12 @@
 <script lang="ts">
   import Footer from './footer.svelte'
   import Header from './header.svelte'
-  import PageTransition from './transition.svelte'
-
+  import PageTransition from './transition.svelte';
   import '../../app.css';
 
   let { children, data } = $props();
-  let showPlaceholder = false;
+
+  let showPlaceholder = true;
 </script>
 
 {#if showPlaceholder}
