@@ -1,7 +1,7 @@
 code {
     font-size: 0.9rem;
-    background: lightgray;
-    color: black;
+    background: var(--theme-surface-alt, lightgray);
+    color: var(--theme-text, black);
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-family: var(--font-monospace-code), monospace;
@@ -26,8 +26,8 @@ pre {
             content: counter(line);
             margin-right: .5em;
             display: inline-block;
-            border-right: 1px solid #ccc;
-            color: dimgray;
+            border-right: 1px solid var(--input-border, #ccc);
+            color: var(--theme-text-muted, dimgray);
             width: 40px;
         }
     }
@@ -51,7 +51,7 @@ pre {
     .image-title {
         text-align: center;
         font-size: 0.9rem;
-        color: #555;
+        color: var(--theme-text-secondary, #555);
         margin-top: 5px;
     }
 }

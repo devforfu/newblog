@@ -1,28 +1,61 @@
 <script lang="ts">
-  import Footer from './footer.svelte'
-  import Header from './header.svelte'
+  import Header from '$lib/components/Header.svelte'
+  import Footer from '$lib/components/Footer.svelte'
   import PageTransition from './transition.svelte';
+
   import '../../app.css';
+
+  import { onMount, onDestroy } from "svelte";
+  import { browser } from "$app/environment";
+  import { theme, availableThemes, type Theme } from '$lib/theme.svelte';
 
   let { children, data } = $props();
 
-  let showPlaceholder = true;
-</script>
+  let showPlaceholder = false;
+  let loaded = $state(false);
 
+  const unsubscribe = theme.subscribe(value => {
+    if (browser && document) {
+      document.documentElement.setAttribute('color-scheme', value);
+    }
+  });
+
+  onMount(() => {
+    if (browser) {
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme && availableThemes.includes(storedTheme as Theme)) {
+        theme.set(storedTheme as Theme);
+      }
+    }
+    loaded = true;
+  });
+
+  onDestroy(() => {
+    unsubscribe();
+  });
+</script>
+<svelte:head>
+  {#if loaded}
+  <link rel="stylesheet" href="/themes/global.css" />
+  <link rel="stylesheet" href="/themes/{$theme}/theme.css" />
+  {/if}
+</svelte:head>
 {#if showPlaceholder}
 <article class="announcement">
   <h1>Under development 🚧</h1>
   <p>The blog is being migrated to a new platform. Stay tuned!</p>
 </article>
 {:else}
-<div class="layout">
+<div class="page-container">
   <Header />
-  <main>
-    <PageTransition url={data.url}>
-      {@render children?.()}
-    </PageTransition>
-  </main>
-  <Footer />
+  <div class="layout">
+    <main>
+      <PageTransition url={data.url}>
+        {@render children?.()}
+      </PageTransition>
+    </main>
+    <Footer />
+  </div>
 </div>
 {/if}
 
@@ -39,24 +72,32 @@
     }
     p {
       text-align: center;
-      font-size: 2rem;
+      font-size: var(--font-size-title);
     }
   }
 
+  .page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--theme-background);
+  }
+
   .layout {
-    height: 100%;
-    max-inline-size: 1440px;
+    flex: 1;
+    max-inline-size: 1200px;
+    width: 100%;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 1fr auto;
     margin-inline: auto;
-    padding-inline: 2rem;
+    padding-inline: var(--space-base);
 
     @media (min-width: 1440px) {
       padding-inline: 0;
     }
 
     main {
-      padding-block: var(--size-9);
+      padding-block: var(--space-xl);
     }
   }
 </style>

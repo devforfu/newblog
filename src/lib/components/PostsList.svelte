@@ -1,5 +1,5 @@
 <script lang="ts">
-    import PostItem from './post_item.svelte';
+    import PostItem from '$lib/components/PostItem.svelte';
     import type {Post} from "$lib/types";
     let { posts, slugPrefix = "" }: { posts: Post[], slugPrefix: string } = $props();
 </script>

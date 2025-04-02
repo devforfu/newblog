@@ -19,8 +19,8 @@ body {
 }
 
 html {
-  color: black;
-  accent-color: #ccc;
+  color: var(--theme-text, black);
+    accent-color: var(--theme-accent, #ccc);
 }
 
 h1 {
@@ -42,21 +42,21 @@ h2::before {
 }
 
 a {
-  color: #4444aa;
+  color: var(--link-color, #4444aa);
   text-decoration: none;
 }
 
 a:hover {
-  color: #222288;
+  color: var(--link-hover-color, #222288);
   text-decoration: underline;
 }
 
 a:visited {
-  color: #aaaaaa;
+  color: var(--theme-text-muted, #aaaaaa);
 }
 
 a:has(code) {
-  color: black;
+  color: var(--theme-text, black);
 }
 
 article {
@@ -71,15 +71,15 @@ pre {
 
 blockquote:not(.algo) {
   font-style: italic;
-  border-left: 4px solid #0070f3;
+  border-left: 4px solid var(--theme-primary, #0070f3);
   padding-left: 12px;
   margin: 1em 0;
-  color: #333;
-  background: #f9f9f9;
+  color: var(--theme-text-secondary, #333);
+    background: var(--theme-surface-alt, #f9f9f9);
 }
 
 blockquote.warning {
-  border-left-color: darkorange;
+  border-left-color: var(--theme-accent, darkorange);
 }
 
 ul {

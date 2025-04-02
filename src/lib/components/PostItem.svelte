@@ -35,18 +35,18 @@
         display: flex;
         flex-direction: column;
         padding: 12px 0;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid var(--input-border);
 
         .post-title {
             font-size: 1.3rem;
             font-weight: bold;
             text-decoration: none;
-            color: black;
+            color: var(--theme-text);
             transition: color 0.2s ease-in-out;
 
             .external-icon {
                 font-size: 0.85rem;
-                color: #0070f3;
+                color: var(--theme-primary);
                 display: inline-flex;
                 align-items: center;
                 position: relative;
@@ -60,9 +60,9 @@
                 left: 50%;
                 transform: translateX(-50%);
                 font-size: 0.75rem;
-                background-color: white;
-                color: black;
-                border: 1px solid black;
+                background-color: var(--theme-surface);
+                color: var(--theme-text);
+                border: 1px solid var(--input-border);
                 padding: 4px 8px;
                 border-radius: 4px;
                 white-space: nowrap;
@@ -77,30 +77,30 @@
         }
 
         .post-title:hover {
-            color: #0070f3;
+            color: var(--theme-primary);
         }
 
         .meta {
             display: flex;
             align-items: center;
             font-size: 0.9rem;
-            color: #555;
+            color: var(--theme-text-secondary);
             gap: 8px;
 
             .date {
                 font-family: monospace;
                 text-transform: uppercase;
                 font-size: 0.85rem;
-                color: #777;
+                color: var(--theme-text-muted);
             }
 
             .separator {
-                color: #aaa;
+                color: var(--theme-text-muted);
             }
 
             .description {
                 font-size: 0.9rem;
-                color: #444;
+                color: var(--theme-text-secondary);
             }
         }
     }

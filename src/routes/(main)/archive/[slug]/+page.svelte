@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Publication from "../../publication.svelte";
+    import Publication from "$lib/components/Publication.svelte";
     let { data } = $props();
 </script>
 <Publication {data} />

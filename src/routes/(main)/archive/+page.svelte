@@ -1,6 +1,6 @@
 <script lang="ts">
     import * as config from '$lib/config';
-    import PostsList from '../posts_list.svelte';
+    import PostsList from '$lib/components/PostsList.svelte';
     let { data } = $props();
 </script>
 <svelte:head>
