@@ -87,3 +87,10 @@ hr {
     background-color: rgba(77, 171, 247, 0.3);
     color: var(--theme-text);
 }
+pre.shiki.github-light-default {
+    display: none;
+}
+
+pre.shiki.github-dark-dimmed {
+    display: block;
+}

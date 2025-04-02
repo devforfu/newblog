@@ -81,3 +81,10 @@ hr {
     height: 1px;
     background-color: var(--input-border);
 }
+pre.shiki.github-light-default {
+    display: block;
+}
+
+pre.shiki.github-dark-dimmed {
+    display: none;
+}

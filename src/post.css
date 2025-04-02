@@ -19,7 +19,7 @@ pre {
     code {
         background: inherit;
         padding: 0;
-        border-radius: 0;
+        border: none;
 
         .line::before {
             counter-increment: line;

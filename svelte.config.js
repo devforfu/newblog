@@ -1,34 +1,35 @@
 import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-import { mdsvex, escapeSvelte } from 'mdsvex';
-import { createHighlighter } from 'shiki';
+import {escapeSvelte, mdsvex} from 'mdsvex';
 
 import remarkToc from 'remark-toc';
 import rehypeSlug from 'rehype-slug';
+import rehypePrettyCode from 'rehype-pretty-code';
+
+import { THEMES, highlightCode } from './src/lib/highlighter.js';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
   extensions: ['.md'],
-  layout: {
-    _: './src/mdsvex.svelte',
-  },
+  layout: { _: './src/mdsvex.svelte' },
   remarkPlugins: [[remarkToc, { tight: true }]],
-  rehypePlugins: [rehypeSlug],
-  highlight: {
-    highlighter: async (code, lang = 'text') => {
-      const theme = 'github-light-default';
-      const highlighter = await createHighlighter({
-        themes: [theme],
-        langs: ['javascript', 'typescript', 'rust', 'python', 'json', 'bash', 'toml'],
-      });
-      await highlighter.loadLanguage('javascript', 'typescript', 'rust', 'python', 'json', 'bash', 'toml');
-      const html = escapeSvelte(
-        highlighter.codeToHtml(code, { lang, theme })
-      );
-      return `{@html \`${html}\` }`;
-    },
-  },
+  rehypePlugins: [
+    [rehypeSlug, {}],
+    [rehypePrettyCode,
+      {
+        keepBackground: false,
+        theme: {
+          light: THEMES[0],
+          dark: THEMES[1],
+        }
+      }
+    ]
+  ],
+  highlight: { highlighter: async (code, lang) => {
+      const { light, dark } = await highlightCode(code, lang);
+      return `{@html \`${escapeSvelte(light)}${escapeSvelte(dark)}\` }`;
+    }},
 };
 
 /** @type {import('@sveltejs/kit').Config} */

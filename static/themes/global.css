@@ -84,3 +84,6 @@ body {
         display: none;
     }
 }
+pre.shiki {
+    display: none;
+}
