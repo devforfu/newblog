@@ -1,0 +1,184 @@
+article,
+h1,
+h2,
+p,
+section,
+li {
+    font-family: 'Times New Roman', sans-serif;
+}
+
+a {
+    color: #4444aa;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #222288;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #aaaaaa;
+}
+
+#resume-content {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.not-print {
+    font-size: 18px;
+    text-align: center;
+    background: lightgrey;
+}
+
+@media not print {
+
+    section,
+    article,
+    li {
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+}
+
+@media print {
+    @page {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    * {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 14px;
+        margin: 1rem auto;
+    }
+
+    .page-break {
+        display: block;
+        page-break-before: always;
+        padding-top: 1.5rem;
+    }
+
+    #resume-content {
+        padding-top: 1rem;
+    }
+
+    a:visited {
+        color: #4444aa;
+    }
+
+    .not-print {
+        display: none;
+    }
+}
+
+* {
+    line-height: 1.25;
+}
+
+h2 {
+    margin-bottom: 0.5rem;
+}
+
+section {
+    text-align: justify;
+}
+
+#summary {
+    padding-bottom: 0;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#header>h1 {
+    margin: 0;
+}
+
+#header>#contacts {
+    text-align: center;
+}
+
+#header>#contacts>li {
+    list-style: none;
+    display: inline;
+}
+
+#header>#contacts>li:after {
+    content: " \2022";
+}
+
+#header>#contacts>li:last-child::after {
+    content: none;
+}
+
+#technologies>table {
+    width: 100%;
+}
+
+.splitter {
+    border: 1px solid deepskyblue;
+    margin-bottom: 8px;
+}
+
+.job {
+    display: flex;
+}
+
+.title {
+    flex: 1;
+}
+
+.dates {
+    flex: 1;
+    text-align: right;
+}
+
+.title,
+.company,
+.dates {
+    font-weight: bold;
+}
+
+.achievements>ul {
+    margin: 0;
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.description>ul {
+    margin: 0;
+}
+
+.education-entry {
+    display: flex;
+    gap: 8px;
+}
+
+.education-entry>p {
+    padding: 0;
+    margin: 0;
+}

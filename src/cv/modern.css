@@ -1,0 +1,213 @@
+/* Modern style based on classic.css with only color changes */
+
+article,
+h1,
+h2,
+p,
+section,
+li {
+    font-family: 'Times New Roman', sans-serif;
+}
+
+a {
+    color: #2c5282;
+    /* Deeper blue */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #4a6fa5;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #7f98c2;
+}
+
+#resume-content {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.not-print {
+    font-size: 18px;
+    text-align: center;
+    background: lightgrey;
+}
+
+@media not print {
+
+    section,
+    article,
+    li {
+        font-size: 20px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .splitter {
+        border: none;
+        height: 2px;
+        background: linear-gradient(to right, transparent, #2c5282, transparent);
+        margin-bottom: 8px;
+    }
+}
+
+@media print {
+    @page {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    * {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 14px;
+        margin: 1rem auto;
+    }
+
+    .page-break {
+        display: block;
+        page-break-before: always;
+        padding-top: 1.5rem;
+    }
+
+    #resume-content {
+        padding-top: 1rem;
+    }
+
+    a:visited {
+        color: #4444aa;
+    }
+
+    .not-print {
+        display: none;
+    }
+
+    /* Ensure splitters show in print */
+    .splitter {
+        border: 1px solid #2c5282;
+        margin-bottom: 8px;
+        height: 0;
+        background: none;
+    }
+}
+
+* {
+    line-height: 1.25;
+}
+
+h2 {
+    margin-bottom: 0.5rem;
+    color: #2c5282;
+    /* Deeper blue */
+}
+
+section {
+    text-align: justify;
+}
+
+#summary {
+    padding-bottom: 0;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#header>h1 {
+    margin: 0;
+    color: #2c5282;
+    /* Deeper blue */
+}
+
+#header>#contacts {
+    text-align: center;
+}
+
+#header>#contacts>li {
+    list-style: none;
+    display: inline;
+}
+
+#header>#contacts>li:after {
+    content: " \2022";
+    color: #4a6fa5;
+    /* Accent color */
+}
+
+#header>#contacts>li:last-child::after {
+    content: none;
+}
+
+#technologies>table {
+    width: 100%;
+}
+
+/* General splitter style moved to media queries */
+
+.job {
+    display: flex;
+}
+
+.title {
+    flex: 1;
+    color: #2c5282;
+    /* Deeper blue */
+}
+
+.dates {
+    flex: 1;
+    text-align: right;
+}
+
+.title,
+.company,
+.dates {
+    font-weight: bold;
+}
+
+.achievements>ul {
+    margin: 0;
+}
+
+.project {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.description>ul {
+    margin: 0;
+}
+
+.education-entry {
+    display: flex;
+    gap: 8px;
+}
+
+.education-entry>p {
+    padding: 0;
+    margin: 0;
+}
+
+.provider strong,
+.degree strong {
+    color: #2c5282;
+    /* Deeper blue */
+}
