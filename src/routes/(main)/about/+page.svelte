@@ -1,96 +1,75 @@
-<section>
-    <article>
-        <div class="photo">
-            <img src="/images/pic.jpeg" alt="Ilia Zaitsev"/>
-        </div>
-        <div class="text">
-            <h1>About</h1>
-            <p>Hi!</p>
-            <p>My name is Ilia Zaitsev, and you are on my web page. Welcome!</p>
-            <p>
-                I am a senior machine learning engineer and data scientist, especially interested in computer vision
-                (object detection, semantic segmentation, and classification of images), autonomous driving systems, and
-                language models (LMs).
-            </p>
-            <p>
-                Here I collected some of my posts and articles, and small notes that didn't fit elsewhere.
-                You might find them interesting.
-            </p>
-            <p>You can also visit links to my other pages:</p>
-            <ul>
-                <li><a href="https://github.com/devforfu">GitHub</a></li>
-                <li><a href="https://linkedin.com/in/ilia-zaitsev">LinkedIn</a></li>
-                <li><a href="https://x.com/devforfu">Twitter/X</a></li>
-                <li><a href="https://www.kaggle.com/purplejester">Kaggle</a></li>
-            </ul>
-        </div>
-    </article>
+<section class="content">
+    <div class="photo">
+        <img src="/images/pic.jpeg" alt="Ilia Zaitsev"/>
+    </div>
+    <div class="text">
+        <p>Hi,</p>
+        <p>My name is Ilia Zaitsev, and you are on my web page. Welcome!</p>
+        <p>
+            I am a senior machine learning engineer and data scientist, especially interested in working with computer
+            vision and deep learning, building analytical dashboards, visualizing complex datasets, and programming
+            in Python, Rust and C++. Building small apps as a hobby, and experimenting with LLMs and GenAI.
+        </p>
+        <p>
+            Currently working in the automotive domain, building object detection and semantic segmentation models,
+            developing triggers for data collection, evaluating their quality, and deploying to embedded devices.
+        </p>
+        <p>
+            Here I collected some of my posts and articles, and small notes that didn't fit elsewhere.
+            You might find them interesting.
+        </p>
+        <p>You can also visit links to my other pages:</p>
+        <ul class="links">
+            <li><a class="link" href="https://github.com/devforfu">GitHub</a></li>
+            <li><a class="link" href="https://linkedin.com/in/ilia-zaitsev">LinkedIn</a></li>
+            <li><a class="link" href="https://www.kaggle.com/purplejester">Kaggle</a></li>
+        </ul>
+    </div>
 </section>
 
 <style>
     section {
         max-width: 800px;
-        margin: auto;
-        padding: 20px;
-    }
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        font-family: var(--font-system-ui), sans-serif;
 
-    article {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 20px;
-    }
+        .photo {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            padding-right: 20px;
 
-    .photo {
-        flex-shrink: 0;
-        display: flex;
-        justify-content: center;
-        padding-right: 20px;
-    }
+            img {
+                border-radius: 50%;
+                max-width: 150px;
+                height: auto;
+            }
+        }
 
-    .photo img {
-        border-radius: 50%;
-        max-width: 150px;
-        height: auto;
-    }
+        .links {
+            padding: 0;
+            list-style-type: none;
 
-    .text {
-        flex: 1;
-    }
+            a {
+                color: #4444aa;
+                text-decoration: none;
+                font-weight: bold;
+            }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
+            a:hover {
+                color: #222288;
+                text-decoration: underline;
+            }
 
-    ul li {
-        margin: 5px 0;
-    }
-
-    ul li a {
-        color: #4444aa;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    ul li a:hover {
-        color: #222288;
-        text-decoration: underline;
+        }
     }
 
     @media (max-width: 600px) {
-        article {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .photo img {
-            max-width: 120px;
-        }
-
-        ul {
-            display: inline-block;
-            text-align: left;
+        section {
+            max-width: 400px;
         }
     }
 </style>

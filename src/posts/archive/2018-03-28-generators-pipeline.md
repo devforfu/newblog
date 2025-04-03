@@ -8,7 +8,6 @@ date: '2018-03-28'
 description: A powerful conception of gradually consumed streams of data in Python
 ---
 <script>
-    import '../../post.css';
     import Katex from '../katex.svelte';
 </script>
 

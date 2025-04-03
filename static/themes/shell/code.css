@@ -1,0 +1,8 @@
+:root {
+     --code-color: #abb2bf;
+     --code-bg-color: #282c34;
+}
+
+pre.github-dark-dimmed {
+     display: block;
+}

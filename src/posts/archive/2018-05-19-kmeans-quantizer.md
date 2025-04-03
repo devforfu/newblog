@@ -7,7 +7,6 @@ date: '2018-05-19'
 description: An example of using clustering to quantize a continuous dataset into a fixed-size feature vectors
 ---
 <script>
-    import '../../post.css';
     import Gist from '../gist.svelte';
     import Katex from '../katex.svelte';
 </script>

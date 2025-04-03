@@ -1,5 +1,5 @@
 ---
-title: Time Series Classification with PyTorch,
+title: Time Series Classification with PyTorch
 tags: ["python", "deep-learning", "pytorch", "kaggle"]
 foreign_url: https://www.kaggle.com/purplejester/pytorch-deep-time-series-classification?scriptVersionId=13160945
 published: true

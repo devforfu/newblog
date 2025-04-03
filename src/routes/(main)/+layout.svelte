@@ -2,8 +2,7 @@
   import Header from '$lib/components/Header.svelte'
   import Footer from '$lib/components/Footer.svelte'
   import PageTransition from './transition.svelte';
-
-  import '../../app.css';
+  import '@fontsource/jetbrains-mono';
 
   import { onMount, onDestroy } from "svelte";
   import { browser } from "$app/environment";
@@ -36,8 +35,9 @@
 </script>
 <svelte:head>
   {#if loaded}
-  <link rel="stylesheet" href="/themes/global.css" />
-  <link rel="stylesheet" href="/themes/{$theme}/theme.css" />
+  <link rel="stylesheet" href="/themes/common.css" />
+  <link rel="stylesheet" href="/themes/{$theme}/code.css" />
+  <link rel="stylesheet" href="/themes/{$theme}/components.css" />
   {/if}
 </svelte:head>
 {#if showPlaceholder}

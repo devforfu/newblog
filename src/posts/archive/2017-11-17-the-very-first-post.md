@@ -7,9 +7,6 @@ archived: true
 date: '2017-11-17'
 description: Notes about building a devbox for local deep learning experiments
 ---
-<script>
- import '../../post.css';
-</script>
 
 Recently I've decided to build a simple deep learning machine with single
 **GTX 1080Ti GPU** and based on **Ubuntu 16.04**. The machine's assembling process

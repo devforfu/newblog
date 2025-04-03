@@ -4,9 +4,20 @@
     let { posts, slugPrefix = "" }: { posts: Post[], slugPrefix: string } = $props();
 </script>
 <section>
-    <ul class="posts">
+    <div class="posts">
         {#each posts as post}
             <PostItem {post} {slugPrefix} />
         {/each}
-    </ul>
+    </div>
 </section>
+<style>
+    .posts {
+        padding-top: 1rem;
+        margin: 1.5rem auto;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        max-width: 1000px;
+    }
+</style>

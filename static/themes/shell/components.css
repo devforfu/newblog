@@ -1,0 +1,15 @@
+:root {
+    --image-title-color: white;
+    --nav-bg-color: #282c34;
+    --nav-item-bg-color: #282c34;
+    --nav-item-text-color: white;
+    --nav-item-bg-color-hover: #374151;
+    --nav-item-text-color-hover: white;
+    --nav-item-bg-color-active: #374151;
+    --nav-item-text-color-active: white;
+    --theme-selection-label-color: white;
+}
+
+.navbar-theme {
+    background-color: var(--nav-bg-color);
+}

@@ -1,13 +1,11 @@
 import { browser } from '$app/environment';
 import { writable, get } from 'svelte/store';
 
-export type Theme = "light" | "dark";
-
-export const availableThemes: Theme[] = ["light", "dark"];
+export type Theme = "shell" | "bright";
+export const availableThemes: Theme[] = ["shell", "bright"];
+export const defaultTheme: Theme = "shell";
 
 const createThemeStore = () => {
-    const defaultTheme: Theme = "light";
-
     const { subscribe, set, update } = writable<Theme>(defaultTheme);
 
     if (browser) {
@@ -30,7 +28,7 @@ const createThemeStore = () => {
         },
         toggle: () => {
             update(current => {
-                const newTheme = current === 'light' ? 'dark' : 'light';
+                const newTheme = current === 'shell' ? 'bright' : 'shell';
                 if (browser) {
                     localStorage.setItem('theme', newTheme);
                     document.documentElement.setAttribute('color-scheme', newTheme);
@@ -42,6 +40,5 @@ const createThemeStore = () => {
 };
 
 export const theme = createThemeStore();
-
-export const getTheme = (): Theme => browser ? get(theme) : 'light';
+export const getTheme = (): Theme => browser ? get(theme) : defaultTheme;
 export const toggleTheme = () => theme.toggle();

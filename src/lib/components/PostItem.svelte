@@ -1,6 +1,7 @@
 <script lang="ts">
     import type { Post } from '$lib/types';
     import { formatDate } from "$lib/utils";
+    import Escape from "$lib/components/Escape.svelte";
 
     let { post, slugPrefix = "" }: { post: Post, slugPrefix: string } = $props();
     const externalPost = post.foreign_url !== undefined;
@@ -10,98 +11,81 @@
     const postDate = formatDate(post.date);
 </script>
 
-<li class="post">
+<div class="post">
     <a href={postLink}
        class="post-title"
        target={externalPost ? "_blank" : "_self"}
        rel={externalPost ? "noopener noreferrer" : ""}
     >
         {post.title}
-        {#if externalPost}
-            <span class="external-icon" data-tooltip="Opens in a new tab">↗</span>
-        {/if}
+        {#if externalPost}<Escape />{/if}
     </a>
     <div class="meta">
         <span class="date">{postDate}</span>
-        {#if post.description}
-            <span class="separator">•</span>
-            <span class="description">{post.description}</span>
+        {#if post.tags && post.tags.length > 0}
+            <div class="categories">
+                {#each post.tags as tag}
+                    <span class="tag">{tag}</span>
+                {/each}
+            </div>
         {/if}
     </div>
-</li>
+    {#if post.description}
+        <div class="description">{post.description}</div>
+    {/if}
+</div>
 
 <style>
     .post {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .post:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.1);
+    }
+
+    .post-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #000;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+        transition: color 0.2s ease-in-out;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .post-title:hover {
+        color: #0070f3;
+    }
+
+    .date {
+        font-family: var(--font-monospace-code), monospace;
+        font-size: 0.8rem;
+        color: #666;
+        margin-right: 0.5rem;
+        white-space: nowrap;
+    }
+
+    .categories {
         display: flex;
-        flex-direction: column;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--input-border);
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem;
+        gap: 0.5rem;
 
-        .post-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: var(--theme-text);
-            transition: color 0.2s ease-in-out;
-
-            .external-icon {
-                font-size: 0.85rem;
-                color: var(--theme-primary);
-                display: inline-flex;
-                align-items: center;
-                position: relative;
-                cursor: pointer;
-            }
-
-            .external-icon::after {
-                content: attr(data-tooltip);
-                position: absolute;
-                bottom: 130%;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 0.75rem;
-                background-color: var(--theme-surface);
-                color: var(--theme-text);
-                border: 1px solid var(--input-border);
-                padding: 4px 8px;
-                border-radius: 4px;
-                white-space: nowrap;
-                opacity: 0;
-                transition: opacity 0.2s ease-in-out;
-                pointer-events: none;
-            }
-
-            .external-icon:hover::after {
-                opacity: 1;
-            }
-        }
-
-        .post-title:hover {
-            color: var(--theme-primary);
-        }
-
-        .meta {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-            color: var(--theme-text-secondary);
-            gap: 8px;
-
-            .date {
-                font-family: monospace;
-                text-transform: uppercase;
-                font-size: 0.85rem;
-                color: var(--theme-text-muted);
-            }
-
-            .separator {
-                color: var(--theme-text-muted);
-            }
-
-            .description {
-                font-size: 0.9rem;
-                color: var(--theme-text-secondary);
-            }
+        .tag {
+            font-family: var(--font-monospace-code), monospace;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            background-color: #eee;
         }
     }
 </style>
