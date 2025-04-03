@@ -1,23 +1,17 @@
 <script lang="ts">
+  import '@fontsource/jetbrains-mono';
+
   import Header from '$lib/components/Header.svelte'
   import Footer from '$lib/components/Footer.svelte'
   import PageTransition from './transition.svelte';
-  import '@fontsource/jetbrains-mono';
 
-  import { onMount, onDestroy } from "svelte";
+  import { onMount } from "svelte";
   import { browser } from "$app/environment";
   import { theme, availableThemes, type Theme } from '$lib/theme.svelte';
 
   let { children, data } = $props();
-
   let showPlaceholder = false;
   let loaded = $state(false);
-
-  const unsubscribe = theme.subscribe(value => {
-    if (browser && document) {
-      document.documentElement.setAttribute('color-scheme', value);
-    }
-  });
 
   onMount(() => {
     if (browser) {
@@ -28,17 +22,11 @@
     }
     loaded = true;
   });
-
-  onDestroy(() => {
-    unsubscribe();
-  });
 </script>
 <svelte:head>
-  {#if loaded}
-  <link rel="stylesheet" href="/themes/common.css" />
-  <link rel="stylesheet" href="/themes/{$theme}/code.css" />
-  <link rel="stylesheet" href="/themes/{$theme}/components.css" />
-  {/if}
+  <link rel="stylesheet" href="/themes/shared.css" />
+  <link rel="stylesheet" href="/themes/bright/code.css" />
+  <link rel="stylesheet" href="/themes/bright/components.css" />
 </svelte:head>
 {#if showPlaceholder}
 <article class="announcement">
@@ -46,19 +34,16 @@
   <p>The blog is being migrated to a new platform. Stay tuned!</p>
 </article>
 {:else}
-<div class="page-container">
+<div class="layout">
   <Header />
-  <div class="layout">
-    <main>
-      <PageTransition url={data.url}>
-        {@render children?.()}
-      </PageTransition>
-    </main>
-    <Footer />
-  </div>
+  <main>
+    <PageTransition url={data.url}>
+      {@render children?.()}
+    </PageTransition>
+  </main>
+  <Footer />
 </div>
 {/if}
-
 <style>
   .announcement {
     display: flex;
@@ -76,28 +61,13 @@
     }
   }
 
-  .page-container {
-    min-height: 100vh;
+  .layout {
     display: flex;
     flex-direction: column;
-    background-color: var(--theme-background);
+    min-height: 100%;
   }
 
-  .layout {
+  main {
     flex: 1;
-    max-inline-size: 1200px;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 1fr auto;
-    margin-inline: auto;
-    padding-inline: var(--space-base);
-
-    @media (min-width: 1440px) {
-      padding-inline: 0;
-    }
-
-    main {
-      padding-block: var(--space-xl);
-    }
   }
 </style>

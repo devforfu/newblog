@@ -1,7 +1,7 @@
 ---
 title: The Best Format to Save Pandas Data Frame
 tags: ["python", "pandas", "matplotlib"]
-foreign_url: https://towardsdatascience.com/the-best-format-to-save-pandas-data-414dca023e0d
+foreign_url: https://medium.com/data-science/the-best-format-to-save-pandas-data-414dca023e0d
 published: true
 archived: true
 date: '2019-03-14'

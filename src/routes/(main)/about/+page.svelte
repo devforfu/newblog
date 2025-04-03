@@ -3,7 +3,7 @@
         <img src="/images/pic.jpeg" alt="Ilia Zaitsev"/>
     </div>
     <div class="text">
-        <p>Hi,</p>
+        <p class="bold">Hi,</p>
         <p>My name is Ilia Zaitsev, and you are on my web page. Welcome!</p>
         <p>
             I am a senior machine learning engineer and data scientist, especially interested in working with computer
@@ -65,6 +65,11 @@
             }
 
         }
+    }
+
+    .text .bold {
+        font-weight: bold;
+        font-size: 1.5rem;
     }
 
     @media (max-width: 600px) {

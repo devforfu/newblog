@@ -1,7 +1,7 @@
 ---
 title: Stress-Free Machine Learning
 tags: ["python", "code"]
-foreign_url: https://towardsdatascience.com/stress-free-machine-learning-e4d0a411a56a
+foreign_url: https://medium.com/data-science/stress-free-machine-learning-e4d0a411a56a
 published: true
 archived: true
 date: '2020-11-17'

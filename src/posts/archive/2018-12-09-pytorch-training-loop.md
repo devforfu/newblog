@@ -1,7 +1,7 @@
 ---
 title: Deep Learning Model Training Loop
 tags: ["python", "pytorch", "deep-learning", "design-patterns"]
-foreign_url: https://towardsdatascience.com/deep-learning-model-training-loop-e41055a24b73
+foreign_url: https://medium.com/data-science/deep-learning-model-training-loop-e41055a24b73
 published: true
 archived: true
 date: '2018-12-09'

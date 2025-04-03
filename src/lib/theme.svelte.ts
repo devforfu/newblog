@@ -22,17 +22,15 @@ const createThemeStore = () => {
                 set(value);
                 if (browser) {
                     localStorage.setItem('theme', value);
-                    document.documentElement.setAttribute('color-scheme', value);
                 }
             }
         },
         toggle: () => {
-            update(current => {
-                const newTheme = current === 'shell' ? 'bright' : 'shell';
-                if (browser) {
-                    localStorage.setItem('theme', newTheme);
-                    document.documentElement.setAttribute('color-scheme', newTheme);
-                }
+            update(currentTheme => {
+                const currentIndex = availableThemes.indexOf(currentTheme);
+                const nextIndex = (currentIndex + 1) % availableThemes.length;
+                const newTheme = availableThemes[nextIndex];
+                if (browser) localStorage.setItem('theme', newTheme);
                 return newTheme;
             });
         }
@@ -40,5 +38,3 @@ const createThemeStore = () => {
 };
 
 export const theme = createThemeStore();
-export const getTheme = (): Theme => browser ? get(theme) : defaultTheme;
-export const toggleTheme = () => theme.toggle();
