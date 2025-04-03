@@ -35,6 +35,7 @@
   .announcement {
     height: 100%;
     max-inline-size: 1440px;
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
@@ -44,10 +45,12 @@
     h1 {
       text-align: center;
       margin: 0 auto;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
     p {
       text-align: center;
       font-size: var(--font-size-title);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
   }
 
