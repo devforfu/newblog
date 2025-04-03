@@ -1,26 +1,17 @@
 <script lang="ts">
     import { page } from '$app/state';
     import Escape from "$lib/components/Escape.svelte";
-
-    const navigationLayout = [
-        {id: 1, href: '/about', label: 'About'},
-        {id: 2, href: '/', label: 'Blog'},
-        {id: 3, href: '/cv', label: 'CV', external: true}
-    ];
 </script>
 <nav class="navbar navbar-theme">
-    {#each navigationLayout as nav (nav.id)}
-        <a href={nav.href}
-           class="nav-item"
-           target={nav.external ? "_blank" : "_self"}
-           rel={nav.external ? "noopener noreferrer" : ""}
-           class:active={nav.href === page.url.pathname}>
-            {nav.label}
-            {#if nav.external}
-                <Escape />
-            {/if}
-        </a>
-    {/each}
+    <a href="/about" class="nav-item">About</a>
+    <a href="/" class="nav-item">Blog</a>
+    <a href="/cv"
+       class="nav-item"
+       target="_blank"
+       rel="noopener noreferrer"
+       class:active={"/cv" === page.url.pathname}>
+        CV <Escape />
+    </a>
 </nav>
 <style>
     .navbar {

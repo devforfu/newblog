@@ -10,7 +10,7 @@
     let { children, url }: Props = $props();
 </script>
 {#key url}
-    <div class="transition" in:fade>
+    <div class="transition" in:fade >
         {@render children?.()}
     </div>
 {/key}

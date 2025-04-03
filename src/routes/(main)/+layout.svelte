@@ -5,29 +5,10 @@
   import Footer from '$lib/components/Footer.svelte'
   import PageTransition from './transition.svelte';
 
-  import { onMount } from "svelte";
-  import { browser } from "$app/environment";
-  import { theme, availableThemes, type Theme } from '$lib/theme.svelte';
-
   let { children, data } = $props();
-  let showPlaceholder = false;
-  let loaded = $state(false);
 
-  onMount(() => {
-    if (browser) {
-      const storedTheme = localStorage.getItem('theme');
-      if (storedTheme && availableThemes.includes(storedTheme as Theme)) {
-        theme.set(storedTheme as Theme);
-      }
-    }
-    loaded = true;
-  });
+  let showPlaceholder = false;
 </script>
-<svelte:head>
-  <link rel="stylesheet" href="/themes/shared.css" />
-  <link rel="stylesheet" href="/themes/bright/code.css" />
-  <link rel="stylesheet" href="/themes/bright/components.css" />
-</svelte:head>
 {#if showPlaceholder}
 <article class="announcement">
   <h1>Under development 🚧</h1>
@@ -46,11 +27,14 @@
 {/if}
 <style>
   .announcement {
-    display: flex;
     height: 100%;
+    max-inline-size: 1440px;
+
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
     h1 {
       text-align: center;
       margin: 0 auto;
