@@ -37,39 +37,70 @@
 
 <style>
     .post {
-        border: 1px solid #ccc;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        transition: transform 0.2s ease-in-out;
+        border: none;
+        padding: 1.25rem;
+        transition: all 0.3s ease;
+        background-color: white;
+        position: relative;
     }
 
     .post:hover {
         transform: translateY(-0.25rem);
-        box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+    
+    .post:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #e4eeff, #1a1a2e);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .post:hover:before {
+        opacity: 1;
     }
 
     .post-title {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
         font-weight: 600;
-        color: #000;
+        color: #1a1a2e;
         text-decoration: none;
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
         transition: color 0.2s ease-in-out;
         text-overflow: ellipsis;
         overflow: hidden;
+        line-height: 1.4;
     }
 
     .post-title:hover {
-        color: #0070f3;
+        color: #4263eb;
+    }
+
+    .meta {
+        display: flex;
+        flex-direction: column;
     }
 
     .date {
         font-family: var(--font-monospace-code), monospace;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         color: #666;
         margin-right: 0.5rem;
         white-space: nowrap;
+    }
+
+    .description {
+        margin-top: 0.75rem;
+        font-size: 1rem;
+        color: #4a4a4a;
+        line-height: 1.5;
     }
 
     .categories {
@@ -82,10 +113,17 @@
 
         .tag {
             font-family: var(--font-monospace-code), monospace;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             padding: 0.25rem 0.5rem;
             border-radius: 0.25rem;
-            background-color: #eee;
+            background-color: #e4eeff;
+            color: #0f3460;
+            transition: all 0.2s ease;
+        }
+        
+        .tag:hover {
+            background-color: #4263eb;
+            color: white;
         }
     }
 </style>

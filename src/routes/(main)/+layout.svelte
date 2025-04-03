@@ -26,6 +26,12 @@
 </div>
 {/if}
 <style>
+  :global(body) {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+
   .announcement {
     height: 100%;
     max-inline-size: 1440px;
@@ -53,5 +59,6 @@
 
   main {
     flex: 1;
+    padding: 0 1rem;
   }
 </style>

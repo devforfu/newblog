@@ -305,7 +305,8 @@ but a remote one requires the server's URL.
 ## Real World Example from Pandas Library
 
 In order to conclude the discussion, let's check a real world example of 
-described technique implemented in the [Pandas library repository](https://github.com/pandas-dev/pandas/blob/master/pandas/io/excel.py#L853-L875).
+described technique implemented in the 
+[Pandas library repository](https://github.com/pandas-dev/pandas/blob/7e4d30697d1d905b27141255c537537edf9f634a/pandas/io/excel/_base.py#L1150).
 
 The library includes a couple of classes responsible for writing the data frames 
 into Excel files. The abstract class is called `ExcelWriter`. Its simplified 

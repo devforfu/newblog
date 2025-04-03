@@ -1,3 +1,13 @@
+<script lang="ts">
+    import {onMount} from "svelte";
+
+    let email = $state("");
+
+    onMount(async () => {
+        const { firstName, lastName, emailDomain } = await (await fetch('/api/cv')).json();
+        email = `${firstName}.${lastName}@${emailDomain}.com`;
+    });
+</script>
 <svelte:head>
     <title>Ilia Zaitsev CV</title>
 </svelte:head>
@@ -5,55 +15,66 @@
 <div id="header">
     <h1>Ilia Zaitsev</h1>
     <ul id="contacts">
-        <li id="email"><a href="mailto:ilia.zaitsev@outlook.com">ilia.zaitsev@outlook.com</a></li>
+        <li id="email"><a href="mailto:{email}">E-mail</a></li>
         <li id="linkedin"><a href="https://linkedin.com/in/ilia-zaitsev">LinkedIn</a></li>
-        <li id="github"><a href="https://github.com/devforfu">github</a></li>
+        <li id="github"><a href="https://github.com/devforfu">GitHub</a></li>
         <li id="website"><a href="https://iliazaitsev.me">iliazaitsev.me</a></li>
         <li id="location">Hamburg, Germany</li>
     </ul>
 </div>
 <section id="summary">
-    A senior machine learning engineer with 10 years of experience in the automotive industry, price and demand forecasting, and backend development.
-    Expert in training computer vision models for segmentation and object detection tasks, building pipelines to process large volumes of data,
-    developing time series forecasting tools, designing evaluation metrics and building dashboards. Advanced experitise in data analytics,
-    deep learning, software design patterns, and algorithms. Excels in fully-distributed teams, with nine years of remote work experience and contributions to open-source projects.
+    A senior machine learning engineer with 10 years of experience in the automotive industry, price and demand
+    forecasting, and backend development. Expert in training computer vision models for segmentation and object
+    detection tasks, building pipelines to process large volumes of data, developing time series forecasting tools,
+    designing evaluation metrics, and building dashboards. Advanced expertise in data analytics, deep learning,
+    software design patterns, and algorithms. Excels in fully distributed teams, with nine years of remote and hybrid
+    work experience and contributions to open-source projects.
 </section>
 <section id="technologies">
     <h2>TECHNOLOGIES</h2>
     <div class="splitter"></div>
     <table>
         <tbody>
-        <tr><td><strong>Machine Learning</strong></td><td>Python, PyTorch, TensorFlow, NumPy, Pandas, Jupyter, Streamlit, scikit-learn, transformers, altair, matplotlib</td></tr>
+        <tr><td><strong>Machine Learning</strong></td><td>Python, PyTorch, TensorFlow, NumPy, Pandas, ONNX, Jupyter, Streamlit, scikit-learn, altair, matplotlib</td></tr>
         <tr><td><strong>Technologies</strong></td><td>AWS S3, Azure DevOps, GitHub Actions, SQL, Pydantic, Weights &amp; Biases (WandB)</td></tr>
-        <tr><td><strong>Working Knowledge</strong></td><td>Rust, C/C++, CMake, LLM finetuning (QLoRA, fp16, fp8, int4)</td></tr>
+        <tr><td><strong>Working Knowledge</strong></td><td>Rust, C/C++, CMake, LLM finetuning (QLoRA, fp16, fp8, int4), transformers</td></tr>
         <tr><td><strong>Other</strong></td><td>TDD, API design, multi-gpu training, software design patterns, data structures, algorithms</td></tr>
         </tbody>
     </table>
 </section>
 <h2>WORK EXPERIENCE</h2>
 <div class="splitter"></div>
-<!--<section id="cariad" class="career-entry">-->
-<!--    <div class="job">-->
-<!--        <p class="title">Senior Machine Learning Engineer</p>-->
-<!--        <p class="company">CARIAD SE (Hamburg, Germany)</p>-->
-<!--        <p class="dates">Sep, 2024&mdash;present</p>-->
-<!--    </div>-->
-<!--    <div class="achievements">-->
-<!--        <ul>-->
-<!--            <li>Joined a team of senior embedded systems developers, contributing to the deployment of triggers and learning key industry practices.</li>-->
-<!--            <li>Diagnosed and resolved issues with a Docker dev container on macOS, improving the robustness and reliability of the development environment.</li>-->
-<!--            <li>-->
-<!--                Developed a utility that generates and sends protobuf messages in a specific format to an AI image triggering subsystem, enabling-->
-<!--                IPC communication with the tool typically receiving images from an embedded camera.-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</section>-->
+<section id="cariad" class="career-entry">
+    <div class="job">
+        <p class="title">Senior Data Engineer</p>
+        <p class="company">CARIAD SE (Hamburg, Germany)</p>
+        <p class="dates">Sep, 2024&mdash;present</p>
+    </div>
+    <div class="achievements">
+        <ul>
+            <li>
+                Joined a team of senior embedded systems developers, contributing to the deployment of triggers and
+                learning modern development practices, including C++20, CMake, Conan, and MicroPython.
+            </li>
+            <li>
+                Diagnosed and resolved issues with a Docker dev container on macOS, improving the robustness and reliability of the development environment.
+            </li>
+            <li>
+                Developed a utility that generates and sends protobuf messages to an AI image-triggering subsystem, enabling
+                IPC communication with the tool typically receiving images from an embedded camera to simplify debugging.
+            </li>
+            <li>
+                Extended the object detection triggering model to support multiple loss heads for entropy-based triggering
+                used in the data collection fleet.
+            </li>
+        </ul>
+    </div>
+</section>
 <section id="cariad" class="career-entry">
     <div class="job">
         <p class="title">Senior Computer Vision Engineer</p>
         <p class="company">CARIAD SE (Hamburg, Germany)</p>
-        <p class="dates">2023&mdash;present</p>
+        <p class="dates">Feb, 2023&mdash;Sep, 2024</p>
     </div>
     <div class="achievements">
         <ul>
@@ -64,8 +85,8 @@
             </li>
             <li>
                 Led the team in contributions to the test codebase, accounting for 25% of surviving LOC changes and
-                achieved 95&ndash;98% coverage for newly added functionality. Adopted rigorous TDD approach and decoupled
-                data types and interfaces to streamline testing.
+                achieving 95&ndash;98% coverage for newly added functionality. Introduced a rigorous TDD approach and
+                decoupled data types and interfaces to streamline testing.
             </li>
             <li>
                 Collaborated with the Lead Data Scientist to develop a Bounding Boxes Localization Uncertainty Estimation
@@ -139,7 +160,7 @@
             </li>
             <li>
                 Migrated core components of the model training pipeline from a custom in-house solution to the PyTorch Lightning
-                training loop. Refactored existing functionality to leverage PyTorch&amp;s standard interfaces, including callbacks,
+                training loop. Refactored existing functionality to leverage PyTorch standard interfaces, including callbacks,
                 datasets, and data loaders.
             </li>
         </ul>
@@ -202,15 +223,15 @@
 <section id="projects">
     <h2>PROJECTS</h2>
     <div class="splitter"></div>
-    <div class="project">
-        <p class="name"><strong>WortBrew &mdash; Desktop App</strong></p>
-        <p class="dates">2023&mdash;2024</p>
-    </div>
-    <div class="description">
-        Built a <a href="https://github.com/WortBrew/WortBrewReleases">desktop app</a> using Rust, TypeScript and Svelte framework
-        to facilitate German language learning via integrating LLM and dictionary APIs for quick translation, words look up, and
-        conversation with a chat-bot capabilities.
-    </div>
+<!--    <div class="project">-->
+<!--        <p class="name"><strong>WortBrew &mdash; Desktop App</strong></p>-->
+<!--        <p class="dates">2023&mdash;2024</p>-->
+<!--    </div>-->
+<!--    <div class="description">-->
+<!--        Built a <a href="https://github.com/WortBrew/WortBrewReleases">desktop app</a> using Rust, TypeScript and Svelte framework-->
+<!--        to facilitate German language learning via integrating LLM and dictionary APIs for quick translation, words look up, and-->
+<!--        conversation with a chat-bot capabilities.-->
+<!--    </div>-->
     <div class="project">
         <p class="name"><strong>Kaggle &mdash; Competitions Expert</strong></p>
         <p class="dates">2019&mdash;2024</p>
@@ -222,23 +243,27 @@
                 globally (2024), demonstrating broad experience across a wide range of machine learning challenges.
             </li>
             <li>
-                <a href="#">Generative Dog Images:</a>
-                Achieved <strong>Top 8%</strong> (Bronze Medal) in a competition focued
+                <a href="https://www.kaggle.com/competitions/generative-dog-images/leaderboard">Generative Dog Images:</a>
+                Achieved <strong>Top 8%</strong> (Bronze Medal) in a competition focused
                 on image synthesis.
             </li>
             <li>
-                <a href="#">UW-Madison Image Segmentation:</a>
+                <a href="https://www.kaggle.com/competitions/uw-madison-gi-tract-image-segmentation/leaderboard">UW-Madison Image Segmentation:</a>
                 Achieved <strong>Top 8%</strong> (Bronze Medal) in a highly
-                competitive challenge focud on medical image segmentation.
+                competitive challenge focused on medical image segmentation.
             </li>
             <li>
-                <a href="#">Recursion Cellular Image Classification:</a> Ranked in the <strong>Top 14%</strong> in a
+                <a href="https://www.kaggle.com/competitions/recursion-cellular-image-classification/leaderboard">Recursion Cellular Image Classification:</a> Ranked in the <strong>Top 14%</strong> in a
                 biomedical research classification problem.
             </li>
             <li>
-                <a href="#">Hacking the Kidney:</a> Ranked in the <strong>Top 16%</strong> in a challenge focused on
+                <a href="https://www.kaggle.com/competitions/hubmap-kidney-segmentation/leaderboard">Hacking the Kidney:</a> Ranked in the <strong>Top 16%</strong> in a challenge focused on
                 segmenting high-resolution kidney tissue images that involved building an efficient segmentation code
                 that fits limited resources on a Kaggle inference instance.
+            </li>
+            <li>
+                Created <a href="https://www.kaggle.com/purplejester/code">multiple Kaggle notebooks</a>,
+                explaining machine learning concepts, showing use-cases and best practices using publicly available competition datasets.
             </li>
         </ul>
     </div>
@@ -248,11 +273,11 @@
     <div class="splitter"></div>
     <div class="education-entry">
         <p class="provider"><strong>C++ Nanodegree,</strong> Udacity</p>
-        <p class="dates">2025</p>
+        <p class="dates">2025&mdash;present</p>
     </div>
     <div class="education-entry">
         <p class="provider"><strong>Object Tracking Course,</strong> Udacity</p>
-        <p class="dates">2024&mdash;2025</p>
+        <p class="dates">2024&mdash;present</p>
     </div>
     <div class="education-entry">
         <p class="degree"><strong>AI and ML Nanodegrees,</strong> Udacity</p>
@@ -260,7 +285,7 @@
     </div>
     <div class="education-entry">
         <p class="provider">
-            <strong>Software Engineering Diplom (five-years program) with distinction,</strong>
+            <strong>Software Engineering Diploma (five-years program) with distinction,</strong>
             Surgut State University
         </p>
         <p class="dates">2009&mdash;2014</p>
@@ -273,9 +298,10 @@
     <h2>INTERESTS</h2>
     <div class="splitter"></div>
     <article>
-        Exploring new languages&mdash;both programming and natural. Currently learning German and improving skills in C/C++.
-        Enjoy building applications in Rust, developing simple tools in C, and experimenting with GenAI technologies.
-        Occasionally participate in Kaggle competitions to explore new models and enhance data science and machine learning expertise.
+        Exploring new languages&mdash;both programming and natural. Currently, learning German and improving skills in
+        C/C++. Enjoy building applications in Rust, developing simple tools in C, and experimenting with GenAI and web
+        technologies. Occasionally participate in Kaggle competitions to explore new models and enhance data science
+        and machine learning expertise.
     </article>
 </section>
     <div class="not-print">
