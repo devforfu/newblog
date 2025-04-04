@@ -1,12 +1,12 @@
 import type {WorkExperience, Education, Project, Technologies, Resume} from "$lib/cv/types";
 
 export const MASTER_SUMMARY =
-    `A senior machine learning engineer with 10 years of experience in the automotive industry, price and demand
-forecasting, and backend development. Expert in training computer vision models for segmentation and object
-detection tasks, building pipelines to process large volumes of data, developing time series forecasting tools,
-designing evaluation metrics, and building dashboards. Advanced expertise in data analytics, deep learning,
-software design patterns, and algorithms. Excels both in collaborative and highly-autonomous distributed
-environments, with nine years of remote and hybrid work experience and contributions to open-source projects.`;
+    `A senior machine learning engineer and data scientist with 10 years of experience in the automotive industry, price 
+and demand forecasting, and backend development. Expert in training computer vision models for segmentation and 
+object detection tasks, building pipelines to process large volumes of data, developing time series forecasting 
+tools, designing evaluation metrics, and building dashboards. Advanced expertise in data analytics, deep learning,
+software design patterns, and algorithms. Excels both in collaborative and highly-autonomous distributed environments, 
+with nine years of hybrid and remote work experience and contributions to open-source projects.`;
 
 export const MASTER_TECHNOLOGIES: Technologies = {
     "Machine Learning": [
@@ -50,7 +50,7 @@ export const MASTER_EXPERIENCE: WorkExperience[] = [
             "Within 1.5 years, became the top contributor (by LOC) to PyTorch-based model training codebase in a team of 8 developers working on AI triggers for intelligent data collection. Built five new modules, including model evaluation, image triggering, visualization, logging, and CLI functionality.",
             "Led the team in contributions to the test codebase, accounting for 25% of surviving LOC changes and achieving 95&ndash;98% coverage for newly added functionality. Introduced a rigorous TDD approach and decoupled data types and interfaces to streamline testing.",
             "Collaborated with the Lead Data Scientist to develop a Bounding Boxes Localization Uncertainty Estimation algorithm that accurately identified poor-performing images to automatically include them into subsequent Active Learning iterations.",
-            "Designed and implemented a flexible model evaluation framework for segmentation and object detection models. Introduced two new object detection metrics (variants of mAP) and refactored a legacy monolithic evaluation class into four modular components, enabling easy interactive use and significantly improving testability.",
+            "Designed and implemented a flexible model evaluation framework for segmentation and object detection models. Based on researched papers, introduced two new object detection metrics (variants of mAP) and refactored a legacy monolithic evaluation class into four modular components, enabling easy interactive use and significantly improving testability.",
             "Refactored the model evaluation and reporting pipeline, enabling the team to run 1,000+ tracked, reproducible, and reliably measured experiments within a year, by providing essential tools and integrations.",
             "Created five well-documented Jupyter notebooks with interactive reports to deliver prototyping and analytics for a team of 8 senior ML engineers and the team lead. These reports facilitated critical decisions on evaluation strategies and metrics.",
             "Developed three flexible data-splitting strategies for computer vision datasets, widely adopted by team members for various projects.",

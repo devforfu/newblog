@@ -195,6 +195,16 @@ section {
     display: flex;
     flex-direction: row;
     text-align: center;
+    margin: 0;
+}
+
+.project .name {
+    color: #2c5282;
+    margin: 0.5rem auto;
+}
+
+.project .dates {
+    margin: 0.5rem auto;
 }
 
 .description>ul {
