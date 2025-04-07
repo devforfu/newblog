@@ -10,7 +10,7 @@
 <article>
     <hgroup>
         <h1>{data.meta.title}</h1>
-        <p>Published at {formatDate(data.meta.date)}</p>
+        <p>{formatDate(data.meta.date)}</p>
     </hgroup>
     <div class="tags">
         {#each data.meta.categories as category}
