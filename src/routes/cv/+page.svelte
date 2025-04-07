@@ -4,7 +4,7 @@
     import { type Resume } from "$lib/cv/types";
 
     let email = $state("");
-    let resume: Resume = createResume("master");
+    let resume: Resume = createResume("research");
     
     onMount(async () => {
         const { firstName, lastName, emailDomain } = await (await fetch('/api/cv')).json();

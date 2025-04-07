@@ -133,6 +133,9 @@ pre.github-light-default, pre.github-dark-dimmed {
     display: none;
 }
 
+pre.github-light-default {
+    display: block;
+}
 
 .image-container {
     display: flex;

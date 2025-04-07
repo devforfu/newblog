@@ -24,6 +24,7 @@
               <li><a class="link" href="https://github.com/devforfu">GitHub</a></li>
               <li><a class="link" href="https://linkedin.com/in/ilia-zaitsev">LinkedIn</a></li>
               <li><a class="link" href="https://www.kaggle.com/purplejester">Kaggle</a></li>
+              <li><a class="link" href="https://medium.com/@iliazaitsev">Medium</a></li>
           </ul>
       </div>
   </section>
