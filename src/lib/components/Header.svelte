@@ -12,6 +12,8 @@
         CV <Escape />
     </a>
     <a href="/notes" class={["nav-item", { active: "/notes" === page.url.pathname }]}>Notes</a>
+    <a href="/terms#privacy" class={["nav-item", { active: "/terms" === page.url.pathname }]}>Privacy</a>
+    <a href="/terms#toc" class={["nav-item", { active: "/terms" === page.url.pathname }]}>Terms and Conditions</a>
 </nav>
 <style>
     .navbar {

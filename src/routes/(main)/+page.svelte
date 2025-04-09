@@ -6,8 +6,4 @@
 <svelte:head>
   <title>{config.title}</title>
 </svelte:head>
-<!--<PostsList posts={data.posts} slugPrefix="" />-->
-<PostsList posts={data.posts} slugPrefix="archive"/>
-<!--<section>-->
-<!--  <p>Old posts are found in the <a href="/archive">archive</a>.</p>-->
-<!--</section>-->
+<PostsList posts={data.posts} />

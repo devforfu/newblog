@@ -7,7 +7,7 @@
 
   let { children, data } = $props();
 
-  let showPlaceholder = true;
+  let showPlaceholder = false;
 </script>
 {#if showPlaceholder}
 <article class="announcement">
