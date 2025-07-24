@@ -107,7 +107,7 @@ export const MASTER_EXPERIENCE: WorkExperience[] = [
 export const MASTER_PROJECTS: Project[] = [
     {
         name: "<strong>Kaggle &mdash; Competitions Expert</strong>",
-        dates: "2019&mdash;2024",
+        dates: "2019&mdash;present",
         descriptionHTML: `
             <ul>
                 <li>

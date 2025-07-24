@@ -59,10 +59,24 @@ export const RESEARCH_EDUCATION: Education[] = [
 export const RESEARCH_PROJECTS: Project[] = [
     ...MASTER_PROJECTS,
     {
-        name: "",
-        dates: "",
-        descriptionHTML: "",
-    }
+        name: "<strong>Tech Articles Writer</strong>",
+        dates: "2017&mdash;present",
+        descriptionHTML: `
+        <ul>
+            <li>Run a personal blog covering various topics in machine learning and data science.</li>
+            <li>Author articles on Medium, including highly acclaimed pieces such as 
+            <a href="https://medium.com/data-science/the-best-format-to-save-pandas-data-414dca023e0d" class="article-ref"><em>The Best Format to Save Pandas Data</em></a> 
+            and 
+            <a href="https://medium.com/coinmonks/how-to-implement-a-recommendation-system-with-deep-learning-and-pytorch-2d40476590f9" class="article-ref"><em>How to Implement a Recommendation System with Deep Learning and PyTorch.</em></a>
+            </li>
+            <li>Publish interactive notebooks on Kaggle, with the most popular being
+            <a href="https://www.kaggle.com/code/purplejester/pytorch-deep-time-series-classification">
+                <em>Deep Time Series Classification.</em>
+            </a>
+            </li>
+        </ul>
+        `,
+    },
 ];
 
 export function createResume(): Resume {
@@ -70,5 +84,6 @@ export function createResume(): Resume {
     resume.summary = RESEARCH_SUMMARY;
     resume.technologies = RESEARCH_TECHNOLOGIES;
     resume.education = RESEARCH_EDUCATION;
+    resume.projects = RESEARCH_PROJECTS;
     return resume;
 }

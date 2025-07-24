@@ -69,7 +69,7 @@
     {#each resume.projects as project}
     <div class="project">
         <p class="name">{@html project.name}</p>
-        <p class="dates">2019&mdash;2024</p>
+        <p class="dates">{@html project.dates}</p>
     </div>
     <div class="description">
         {@html project.descriptionHTML}
@@ -101,4 +101,7 @@
 </div>
 <style>
     @import "../../cv/modern.css";
+    :global(.description > ul) {
+        margin: 0.5em 0;
+    }
 </style>
